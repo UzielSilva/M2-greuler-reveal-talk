@@ -1,13 +1,18 @@
 <!doctype html>
 <html>
+	<style type="text/css">
+		g {
+			opacity: 1 !important;
+		}
+	</style>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Macaulay2 + Greuler + reveal.js - Software tools for mathematics</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,13 +29,141 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+			<section data-markdown>
+					<script type="text/template">
+						# Macaulay2 + Greuler + reveal.js
+						### tools for research, and creation of dynamic presentations about graph theory
+					</script>
+				</section>
+				<section>
+					<section>
+						
+						<h2>What is Macaulay2?</h2>
+
+						<p class="fragment" data-fragment-index="0">Powerful software system devoted to supporting research in algebraic geometry and commutative algebra</p>
+
+					</section>
+					<section>
+						
+						<p>It also involves graph theory because of chain complexes, conmutative diagrams, homology, etc..</p>
+
+
+					</section>
+					<section>
+						
+						<h3> Extensible 😮 </h3>
+
+						<p>You can find .m2 scripts on the internet, develop your own .m2 scripts and extend functionality</p>
+						<p>
+							<strong class="fragment" data-fragment-index="0">Examples:</strong>
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									NautyGraphs
+								</li>	
+								<li class="fragment" data-fragment-index="2">
+									Visualize
+								</li>	
+							</ul>
+						</p>
+						<p class="fragment" data-fragment-index="3">Please be patient, demo incoming!</p>
+
+					</section>
+					<section>
+						
+						<h3>API friendly 👍</h3>
+
+						<p>It comes with methods for develop web interfaces</p>
+
+						<h4>Why so important?</h4>
+
+						<p>If you allow your information for external access, it can be used by other programs more easily</p>
+
+					</section>
+					<section>
+						
+						<h1>It's DEMO time!</h1>
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What is reveal.js?</h2>
+
+						<p class="fragment" data-fragment-index="0">JavaScript framework that enables you to create beautiful interactive slide decks using HTML</p> 
+					</section>
+					<section>
+						<h3>Why reveal.js</h3>
+
+						<p class="fragment" data-fragment-index="0">JavaScript is a powerful language present in all web browsers</p>
+						<p class="fragment" data-fragment-index="1">It allows to create interactive functionality for anyone who has a web browser(another demo incoming!)</p>
+						<p class="fragment" data-fragment-index="2">No need to be a developer</p><p class="fragment" data-fragment-index="3">Markdown support</p> 
+						<p class="fragment" data-fragment-index="4">It has MathJax support</p> 
+						<p class="fragment" data-fragment-index="5">\((\forall \epsilon > 0)(\exists \delta > 0)(|f(x) - f(l)| < \delta)(|x - l| < \epsilon)\)</p> 
+
+					</section>
+					<section>
+						<h3>In case you didn't notice it</h3>
+
+						<p class="fragment" data-fragment-index="0">This presentation is in reveal.js</p> 
+
+					</section>
+
+					
+				</section>
+				<section>
+					<section>
+						<h2>What is greuler?</h2>
+
+						<p class="fragment" data-fragment-index="0">Graph theory visualization tool powered by d3</p> 
+						<p class="fragment" data-fragment-index="1">Allows creation and manipulation of graphs with a simple api</p>
+					</section>
+          <section>
+            <h3>Why greuler?</h3>
+            <div id="greuler1">
+              
+            </div>
+            <button id="runner" onclick="window.runGreuler1()">run algorithm</button>
+          </section>
+          <section>
+            <h3>Graph manipulation</h3>
+            <div id="greuler2">
+              
+            </div>
+            <button id="runner" onclick="window.addNode()">add node</button>
+            <button id="runner" onclick="window.removeNode()">remove node</button>
+            <button id="runner" onclick="window.updateNode()">update node</button>
+            <button id="runner" onclick="window.addEdge()">add edge</button>
+            <button id="runner" onclick="window.updateEdge()">update edge</button>
+            <button id="runner" onclick="window.removeEdge()">remove edge</button>
+          </section>
+          <section>
+            <h3>Highlights</h3>
+            <div id="greuler3">
+              
+            </div>
+            <button id="runner" onclick="window.highlightRandom()">random</button>
+            <button id="runner" onclick="window.highlightIncident()">incident</button>
+            <button id="runner" onclick="window.highlightOutgoing()">outgoing</button>
+            <button id="runner" onclick="window.highlightIncoming()">incoming</button>
+            <button id="runner" onclick="window.highlightTraversing()">traversing</button>
+            <button id="runner" onclick="window.highlightCustomNode()">custom node</button>
+            <button id="runner" onclick="window.highlightCustomEdge()">custom edge</button>
+
+          </section>
+
+					
+				</section>
+        <section>
+          <h1>Thank you!!</h1>
+        </section>
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<script src="js/d3.min.js"></script>
+		<script src="js/cola.min.js"></script>
+		<script src="js/greuler.min.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -40,10 +173,348 @@
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+				math: {
+					mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+				}
 			});
 		</script>
+		<script type="text/javascript">
+	      var instance1 = greuler({
+	        target: '#greuler1',
+	        height: 500,
+	        animationTime: 500,
+	        data: greuler.Graph.random({ connected: true })
+	      }).update();
+	      var instance2 = greuler({
+		    target: '#greuler2',
+		    width: 480,
+		    height: 350,
+		    data: {
+		      nodes: [
+		        {id: 0},
+		        {id: 1},
+		        {id: 2},
+		        {id: 3},
+		        {id: 4},
+		        {id: 5}
+		      ],
+		      links: [
+		        {source: 0, target: 1},
+		        {source: 0, target: 2, directed: true},
+		        {source: 0, target: 3},
+		        {source: 1, target: 2, directed: true},
+		        {source: 4, target: 0},
+		        {source: 5, target: 0, directed: true},
+		        {source: 4, target: 5}
+		      ]
+		    }
+		  }).update();
+		  var instance3 = greuler({
+		    target: '#greuler3',
+		    directed: true,
+		    width: 480,
+		    height: 350,
+		    data: {
+		      nodes: [
+		        {id: 0},
+		        {id: 1},
+		        {id: 2},
+		        {id: 3},
+		        {id: 4},
+		        {id: 5}
+		      ],
+		      links: [
+		        {source: 0, target: 1},
+		        {source: 0, target: 2},
+		        {source: 0, target: 3},
+		        {source: 1, target: 2},
+		        {source: 4, target: 0},
+		        {source: 5, target: 0},
+		        {source: 4, target: 5}
+		      ]
+		    }
+		  }).update();
+		  window.runGreuler1 = function () {
+		    var player = window.generator = new greuler.player.Generator(instance1);
+		    player.run(function *algorithm(instance1) {
+		      var visited = [];
+
+		      function *dfs(u, p) {
+		        yield function () {
+		          instance1.selector.highlightNode({ id: u });
+		        };
+		        visited[u] = true;
+
+		        var adjacent = instance1.graph.getAdjacentNodes({ id: u });
+		        for (var i = 0; i < adjacent.length; i += 1) {
+		          var v = adjacent[i].id;
+
+		          if (v === p) { continue; }
+
+		          if (!visited[v]) {
+		            yield function () {
+		              instance1.selector.traverseAllEdgesBetween({ source: u, target: v });
+		            };
+		            yield *dfs(v, u);
+		          } else {
+		            yield function () {
+		              instance1.selector.traverseAllEdgesBetween(
+		                { source: u, target: v },
+		                { keepStroke: false }
+		              )
+		                .transition()
+		                .attr('opacity', 0.3);
+		            };
+		          }
+		        }
+
+		        yield function () {
+		          instance1.selector.getNode({ id: u })
+		            .transition()
+		            .attr('fill', 'black');
+		        };
+		      }
+
+		      yield *dfs(0, -1);
+		    });
+		  };
+      window.addNode = function(){
+        // let's keep this example simple and add a maximum of 10
+        // nodes, this isn't related with the api btw, it's just to
+        // avoid the creation of unnecessary nodes
+        var id = -1;
+        var nodes = [];
+        var i;
+        instance2.graph.nodes.forEach(function (node) {
+          nodes[node.id] = true;
+        });
+        for (i = 0; i < 10; i += 1) {
+          if (typeof nodes[i] === 'undefined' && id === -1) {
+            id = i;
+            break;
+          }
+        }
+        if (id === -1) {
+          return;
+        }
+
+        instance2.graph.addNode({ id: id });
+
+        // after the structure of the graph has been changed it's
+        // needed to trigger a new layout
+        instance2.update();
+      };
+      window.removeNode = function(){
+        var order = instance2.graph.nodes.length;
+        var last = instance2.graph.nodes[order - 1];
+
+        if (!last) {
+          return;
+        }
+
+        // remove a node with an id < 10 if it exists in the graph
+        // note that you can also call it with the node itself
+        // e.g.
+        //      instance2.graph.removeNode(last)
+        //
+        instance2.graph.removeNode({ id: last.id });
+
+        // after the structure of the graph has been changed it's
+        // needed to trigger a new layout
+        instance2.update();
+      };
+      window.updateNode = function() {
+        var order = instance2.graph.nodes.length;
+
+        if (!order) { return; }
+
+        var nodeIndex = Math.floor(Math.random() * order);
+        var node = instance2.graph.nodes[nodeIndex];
+
+        var update = instance2.graph.getNode({ id: node.id });
+        update.label = '✓';
+        update.topRightLabel = '∞';
+        update.topLeftLabel = 'n';
+
+        // note that this time the structure of the graph wasn't changed
+        // only new properties were added to an existing node, therefore
+        // we don't need to trigger a new layout
+        instance2.update({ skipLayout: true });
+      };
+      window.addEdge = function() {
+        var order = instance2.graph.nodes.length;
+        var size = instance2.graph.edges.length;
+
+        if (!order || size > 15) { return; }
+
+        var uIndex = Math.floor(Math.random() * order);
+        var vIndex = Math.floor(Math.random() * order);
+        var u = instance2.graph.nodes[uIndex];
+        var v = instance2.graph.nodes[vIndex];
+
+        var edge = { source: u.id, target: v.id };
+        // random edges have weight
+        if (Math.random() > 0.5) {
+          edge.weight = Math.floor(Math.random() * 10);
+        }
+        // random edges are directed
+        Math.random() > 0.5 && (edge.directed = true);
+
+        // Adding an edge to the graph between some existing nodes
+        // in the graph
+        instance2.graph.addEdge(edge);
+
+        // after the structure of the graph has been changed it's
+        // needed to trigger a new layout
+        instance2.update();
+      };
+      window.removeEdge = function() {
+        var size = instance2.graph.edges.length;
+        var last = instance2.graph.edges[size - 1];
+
+        if (!last) {
+          return;
+        }
+
+        // remove a node with an id < 10 if it exists in the graph
+        // note that you can also call it with the node itself
+        // e.g.
+        //      instance2.graph.removeNode(last)
+        //
+        instance2.graph.removeEdge({ id: last.id });
+
+        // after the structure of the graph has been changed it's
+        // needed to trigger a new layout
+        instance2.update();
+      };
+      window.updateEdge = function(){
+        var size = instance2.graph.edges.length;
+
+        if (!size) { return; }
+
+        var edgeIndex = Math.floor(Math.random() * size);
+        var edge = instance2.graph.edges[edgeIndex];
+
+        var update = instance2.graph.getEdge({ id: edge.id });
+        update.weight = '∞';
+        update.directed = !update.directed;
+
+        // note that this time the structure of the graph wasn't changed
+        // only new properties were changed in an existing edge, therefore
+        // we don't need to trigger a new layout
+        instance2.update({ skipLayout: true });
+      };
+      window.highlightRandom = function(){
+        var order = instance3.graph.nodes.length;
+		var size = instance3.graph.edges.length;
+
+		var id = Math.floor(Math.random() * order);
+
+		// highlight the node whose id is `id`, the highlight
+		// animation is predefined but the user can easily define a
+		// custom animation, the default animation works by modifying
+		// the `r` attribute of the circle that represents the node
+		instance3.selector.highlightNode({ id: id });
+
+		// if we have the edge we can pass that object to the highlight edge method
+		// however let's assume that we don't have it, we can pass the edge itself
+		// and the selector will automatically get the d3 selection and perform the
+		// highlight animation
+		var edgeIndex = Math.floor(Math.random() * size);
+		instance3.selector.highlightEdge(
+		  instance3.graph.edges[edgeIndex]
+		);
+      };
+      window.highlightIncident = function(){
+		var order = instance3.graph.nodes.length;
+		var id = Math.floor(Math.random() * order);
+		instance3.selector.highlightNode({ id: id });
+
+		// a utility method that changes the color of all the incident
+		// edges of the node `id`
+		instance3.selector.highlightIncidentEdges({ id: id });
+
+		// highlight methods
+		// - selector.highlightIncomingEdges
+		// - selector.highlightOutgoingEdges
+		// - selector.highlightIncidentEdges
+      };
+      window.highlightOutgoing = function(){
+		var order = instance3.graph.nodes.length;
+		var id = Math.floor(Math.random() * order);
+		instance3.selector.highlightNode({ id: id });
+
+		// a utility method that changes the color of all the incident
+		// edges of the node `id`
+		instance3.selector.highlightOutgoingEdges({ id: id });
+
+		// highlight methods
+		// - selector.highlightIncomingEdges
+		// - selector.highlightOutgoingEdges
+		// - selector.highlightIncidentEdges
+      };
+      window.highlightIncoming = function(){
+		var order = instance3.graph.nodes.length;
+		var id = Math.floor(Math.random() * order);
+		instance3.selector.highlightNode({ id: id });
+
+		// a utility method that changes the color of all the incident
+		// edges of the node `id`
+		instance3.selector.highlightIncomingEdges({ id: id });
+
+		// highlight methods
+		// - selector.highlightIncomingEdges
+		// - selector.highlightOutgoingEdges
+		// - selector.highlightIncidentEdges
+      };
+      window.highlightTraversing = function(){
+      	var order = instance3.graph.nodes.length;
+		var u = Math.floor(Math.random() * order);
+		var v = Math.floor(Math.random() * order);
+
+		instance3.selector.getEdges()
+		  .attr('stroke', function (d) { return d.stroke; });
+
+		instance3.selector.highlightNode({ id: u });
+		instance3.selector.highlightNode({ id: v });
+		instance3.selector.traverseAllEdgesBetween({
+		  source: u,
+		  target: v
+		});
+      };
+      window.highlightCustomNode = function(){
+		var order = instance3.graph.nodes.length;
+		var id = Math.floor(Math.random() * order);
+
+		// you can always create your custom transition if you want
+		// here a random node is colored with a random color from
+		// a predefined d3 palette
+		instance3.selector.getNode({ id: id })
+		  .transition('custom')
+		  .duration(1000)
+		  .attr('fill', greuler.colors.randomFromPalette());
+
+		// check out `greuler.colors` for the palette
+	  };
+      window.highlightCustomEdge = function(){
+		var size = instance3.graph.edges.length;
+		var edgeIndex = Math.floor(Math.random() * size);
+		var edge = instance3.graph.edges[edgeIndex];
+
+		// you can always create your custom transition if you want
+		// here a random node is colored with a random color from
+		// a predefined d3 palette
+		instance3.selector.getEdge({ id: edge.id })
+		  .transition('custom')
+		  .duration(1000)
+		  .attr('stroke', greuler.colors.randomFromPalette());
+	  };
+		</script>
+		
 	</body>
 </html>
